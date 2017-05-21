@@ -1,0 +1,111 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="GPS.Share"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True" xmlns:my="clr-namespace:Microsoft.Advertising.Mobile.UI;assembly=Microsoft.Advertising.Mobile.UI"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    toolkit:TiltEffect.IsTiltEnabled="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="418*" />
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="WHERE AM I?" Style="{StaticResource PhoneTextNormalStyle}"/>
+            
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+                <RowDefinition Height="91*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="title" Grid.Column="0" Grid.ColumnSpan="2" Text="share" Margin="70,0,0,0" FontSize="65" Padding="16,0,0,0">
+                <TextBlock.RenderTransform>
+                    <RotateTransform Angle="90" />
+                </TextBlock.RenderTransform>
+            </TextBlock>
+           <!-- <Button Content="Facebook" Grid.Row="2" Height="72" HorizontalAlignment="Left" Margin="0" Name="button2" VerticalAlignment="Top" Width="160" BorderThickness="0" HorizontalContentAlignment="Left"  /> -->
+            <StackPanel Orientation="Horizontal" Grid.Row="0"  Grid.Column="1">
+                <Grid>
+                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Width="50" Height="50"></Rectangle>
+                    <Image Source="/GPS;component/Images/Share/SendText.png" />
+                </Grid>
+                <Button Content="Message" Grid.Column="1" Height="72" HorizontalAlignment="Stretch" Margin="0" Name="btnMessage" VerticalAlignment="Center" Width="Auto" BorderThickness="0" HorizontalContentAlignment="Left" Click="SMS_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1"  Grid.Column="1">
+                <Grid>
+                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Width="50" Height="50"></Rectangle>
+                    <Image Source="/GPS;component/Images/Share/SendMessage.png" />
+                </Grid>
+                <Button Content="Email" Height="72" HorizontalAlignment="Stretch" Margin="0" Name="btnEmail" VerticalAlignment="Center" Width="Auto" BorderThickness="0" HorizontalContentAlignment="Left" Click="Email_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2"  Grid.Column="1">
+                <Grid>
+                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Width="50" Height="50"></Rectangle>
+                    <Image Source="/GPS;component/Images/Share/SendStatus.png" />
+                </Grid>
+                <Button Content="Update Status" Height="72" HorizontalAlignment="Stretch" Margin="0" Name="btnStatus" VerticalAlignment="Center" Width="Auto" BorderThickness="0" HorizontalContentAlignment="Left" Click="StatusButton_Click" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3"  Grid.Column="1">
+                <Grid>
+                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Width="50" Height="50"></Rectangle>
+                    <Image Source="/GPS;component/Images/Share/SendLink.png" />
+                </Grid>
+                <Button Content="Link"  Height="72" HorizontalAlignment="Stretch" Margin="0" Name="btnLink" VerticalAlignment="Center" Width="Auto" BorderThickness="0" HorizontalContentAlignment="Left" Click="LinkButton_Click" />
+            </StackPanel>
+            <TextBlock  Grid.Column="1" Grid.Row="4" Text="Include" FontSize="30" Margin="0,30,0,0" Foreground="{StaticResource PhoneAccentBrush}"></TextBlock>
+            <toolkit:ToggleSwitch Content="Geo Coordinates"  Grid.Column="1" Grid.Row="5"   HorizontalAlignment="Stretch" Name="chkbox_geo" VerticalAlignment="Top"  IsChecked="true" />
+            <toolkit:ToggleSwitch Content="URL"  Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" Name="chkbox_url" VerticalAlignment="Top" IsChecked="true"/>
+        </Grid>
+        <Grid Grid.Row="2" Height="80" HorizontalAlignment="Left" Margin="0" Name="adGrid" VerticalAlignment="Bottom" Width="480"> </Grid>
+       
+  
+    </Grid>
+
+   
+</phone:PhoneApplicationPage>

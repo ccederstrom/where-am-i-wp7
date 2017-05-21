@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="GPS.Controls.GeoCoordinateControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480"  Unloaded="UserControl_Unloaded">
+    
+    <Grid x:Name="LayoutRoot">
+        <StackPanel>
+            <TextBlock  Height="Auto" Name="txt_more" Text="Location service is off." FontSize="32"  TextWrapping="Wrap" Visibility="Collapsed"/>
+            <TextBlock Margin="16,0,0,0" Height="Auto" Text="altitude" FontSize="34"  />
+            <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_alt" Text="Location service is off." FontSize="24" Foreground="{StaticResource PhoneAccentBrush}" TextWrapping="Wrap"/>
+            <TextBlock Margin="16,4,0,0" Height="Auto" Text="longitude" FontSize="34" />
+            <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_long" Text="Location service is off." FontSize="24"  Foreground="{StaticResource PhoneAccentBrush}"  TextWrapping="Wrap"/>
+            <TextBlock Margin="16,4,0,0" Height="Auto" Text="latitude" FontSize="34" />
+            <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_la" Text="Location service is off." FontSize="24"  Foreground="{StaticResource PhoneAccentBrush}"  TextWrapping="Wrap"/>
+            <TextBlock Margin="16,4,0,0" Height="Auto" Text="course" FontSize="34"  />
+            <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_course" Text="Location service is off." FontSize="24" Foreground="{StaticResource PhoneAccentBrush}" TextWrapping="Wrap"  />
+        </StackPanel>
+    </Grid>
+</UserControl>

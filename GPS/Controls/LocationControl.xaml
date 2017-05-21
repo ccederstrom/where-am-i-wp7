@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="GPS.Controls.LocationControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480"  Unloaded="UserControl_Unloaded">
+
+    <Grid x:Name="LayoutRoot">
+        <toolkit:PerformanceProgressBar Name="ProgressBar" IsEnabled="True" IsIndeterminate="True" ActualIsIndeterminate="True" Visibility="Visible" VerticalAlignment="Center" Foreground="{StaticResource PhoneAccentBrush}"/>
+
+        <ListBox toolkit:TiltEffect.IsTiltEnabled="True"  x:Name="stack_address"  Height="359" Margin="19,0,19,37">
+            <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_currentbus_name" Text="{Binding name}" FontSize="24" Foreground="{StaticResource PhoneAccentBrush}" TextWrapping="Wrap" HorizontalAlignment="Stretch" Tap="txt_currentbus_name_Tap"  Visibility="Collapsed"/>
+            <TextBlock Height="Auto" Width="Auto" Name="txtAddress" Text=""  TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}" HorizontalAlignment="Center" Tap="txtAddress_Tap" />
+
+            <StackPanel Orientation="Horizontal" Name="PhoneStackPanel" Visibility="Collapsed">
+                <Image Source="/GPS;component/Images/dark/appbar.phone.rest.png" />
+                <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_currentbus_phonenumber"  FontSize="24"  Foreground="{StaticResource PhoneAccentBrush}"  TextWrapping="Wrap" VerticalAlignment="Center" Tap="txt_currentbus_phonenumber_Tap" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="FaxStackPanel" Visibility="Collapsed">
+                <!--need fax icon-->
+                <Image Source="/GPS;component/Images/dark/appbar.phone.numbersign.rest.png" />
+                <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_currentbus_faxnumber" FontSize="24"  Foreground="{StaticResource PhoneAccentBrush}"  TextWrapping="Wrap" VerticalAlignment="Center"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="WebsiteStackPanel" Visibility="Collapsed">
+                <Image Source="/GPS;component/Images/dark/appbar.gotoaddressbar.rest.png" />
+                <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_currentbus_website"  FontSize="24" Foreground="{StaticResource PhoneAccentBrush}" TextWrapping="Wrap" VerticalAlignment="Center" Tap="txt_currentbus_website_Tap" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Name="OffersStackPanel" Visibility="Collapsed">
+                <Image Source="/GPS;component/Images/dark/appbar.money.rest.png" />
+                <TextBlock Margin="16,0,0,0" Height="Auto" Name="txt_currentbus_offers"  FontSize="24" Foreground="{StaticResource PhoneAccentBrush}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+            </StackPanel>
+
+        </ListBox>
+    </Grid>
+</UserControl>

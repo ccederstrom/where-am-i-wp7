@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="UsingBingMaps.Services.CityGrid.Controls.NearbyControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="280" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot">
+        <toolkit:PerformanceProgressBar Name="ProgressBar" IsEnabled="True" IsIndeterminate="True" ActualIsIndeterminate="True" Visibility="Visible" VerticalAlignment="Top" Margin="0,80,0,0" Foreground="{StaticResource PhoneAccentBrush}"/>
+        <ListBox toolkit:TiltEffect.IsTiltEnabled="True" ScrollViewer.VerticalScrollBarVisibility="Disabled" Name="NearbyListBox" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" Margin="20,0,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Tap="NearbyListBox_Tap">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+               
+                        <!--<Image Source="{Binding Image}"/>-->
+                        <StackPanel Orientation="Vertical"  Name="NearbyResultsItemStackPanel" Hold="NearbyResultsItemStackPanel_Hold">
+                            <toolkit:ContextMenuService.ContextMenu>
+                                <toolkit:ContextMenu Name="ContextMenuList" Loaded="ContextMenuList_Loaded">
+                                    <toolkit:MenuItem Header="add to contacts" Name="ContextMenuItem_AddContact" Click="ContextMenuItem_AddContact_Click" />
+                                    <toolkit:MenuItem Header="call" Name="ContextMenuItem_Call" Click="ContextMenuItem_Call_Click" />
+                                    <toolkit:MenuItem Header="visit website" Name="ContextMenuItem_Website" Click="ContextMenuItem_Website_Click" />
+                                </toolkit:ContextMenu>
+                            </toolkit:ContextMenuService.ContextMenu>
+                            
+                            <TextBlock Text="{Binding Name}" FontSize="30" />
+                            <TextBlock Text="{Binding SampleCategories}" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" x:Name="PhoneNumberPanel" Visibility="{Binding PhoneNumberPanel_Visibility}">
+                                    <Image Source="/GPS;component/Images/dark/appbar.phone.rest.png" />
+                                    <TextBlock Text="{Binding PhoneNumber}" Style="{StaticResource PhoneTextSubtleStyle}" VerticalAlignment="Center">
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" x:Name="RatingPanel" Visibility="{Binding RatingPanel_Visibility}">
+                                    <Image Source="/GPS;component/Images/dark/appbar.favs.rest.png" />
+                                    <TextBlock Text="{Binding Rating}" Style="{StaticResource PhoneTextSubtleStyle}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" x:Name="WebsitePanel" Visibility="{Binding WebsitePanel_Visibility}">
+                                <Image Source="/GPS;component/Images/dark/appbar.gotoaddressbar.rest.png" />
+                                <TextBlock Text="{Binding Website}" Style="{StaticResource PhoneTextSubtleStyle}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>
