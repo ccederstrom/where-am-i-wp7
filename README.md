@@ -1,5 +1,5 @@
 # Where am I? for Windows Phone 7
-GPS mobile application to find current location and nearby businesses by category and search.
+Windows Phone 7 GPS mobile application to find street address of current location and nearby businesses by category and search.
 
 **Microsoft store:** https://www.microsoft.com/en-us/store/p/where-am-i/9nblggh0ctwd
 
